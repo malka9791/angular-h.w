@@ -1,0 +1,31 @@
+<p>student works!</p>
+@for(item of listStudents; track item.id)
+{
+<p>id: {{item.id}} name: {{item.name}}
+  family:{{item.family}} tel: {{item.tel}} mark: {{item.avg}}
+  status: {{item.status}}
+</p>
+<button (click)="delete(item.id)">delete member</button>
+<br>
+<button (click)="edit(item.id)">edit details</button>
+  @if(select==item.id)
+    {
+<app-student-details [currentStudent]="item" (newStudent)="save($event)"></app-student-details>
+    }
+<!-- <button (click)="addStudent(item.id)">add student</button>
+@if(selectAdd==item.id)
+{
+<app-student-details [currentStudent]="s1"></app-student-details>
+{{addStudent(5)}}
+} -->
+
+}
+<br/>
+<div>
+<button (click)="addStudent()">add student</button>
+@if(this.listStudents.length+1==selectAdd)
+{
+  <app-student-details [currentStudent]="s1" (newStudent)="save($event)"></app-student-details>
+}
+</div>
+

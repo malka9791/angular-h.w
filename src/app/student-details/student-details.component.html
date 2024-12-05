@@ -1,0 +1,13 @@
+<div>
+    id:<input #id type="text" [value]="currentStudent.id">
+    name:<input #name type="text" [value]="currentStudent.name">
+    family:<input #family type="text" [value]="currentStudent.family">
+    phone:<input #phone type="text" [value]="currentStudent.tel">
+    status:<input #status type="text" [value]="currentStudent.status">
+    adress:<input #adress type="text" [value]="currentStudent.address">
+    @if(currentStudent.status==false)
+    {
+  leaving date:{{currentStudent.Leavingdate}}
+    }
+</div> 
+<button (click)="saveData(id.valueAsNumber,name.value,family.value,adress.value,phone.value)">save</button>

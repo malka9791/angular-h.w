@@ -1,0 +1,15 @@
+<ng-template #myTemplate>
+<h1>menu works!</h1>
+<div>hello im menu☺️</div>
+<h1>menu finish</h1>
+</ng-template>
+<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+@for(item of students;track item.id)
+{
+    <div>family:{{item.family}}
+     tel: {{item.tel}} 
+    mark: {{item.avg}}
+    status: {{item.status}}
+    </div>
+}
+<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
