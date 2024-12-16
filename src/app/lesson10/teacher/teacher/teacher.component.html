@@ -1,0 +1,53 @@
+<p>teacher works!</p>
+@for(item of listTeacher;track item.id) {
+<p>id: {{ item.id }} | name:{{ item.name }} | classes:{{ item.classes }}</p>
+}
+<label for="id">id:</label>
+<input
+  type="number"
+  [(ngModel)]="id"
+  name="Id"
+  #username="ngModel"
+  placeholder="enter your id"
+  required
+/> <br/>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <label for="name">username:</label>
+  <input
+    type="text"
+    [(ngModel)]="name"
+    name="name"
+    #username="ngModel"
+    placeholder="enter your name"
+    required
+  /> <br/>
+   @if(username.hasError('required')) {
+  <small class="error-invalid">name is required!!</small>
+  <br/>
+  } 
+<label for="classes">classes:</label><br/>
+  <ng-template #myTemplate>
+    <p>
+      <input
+        type="text"
+        [(ngModel)]="classes"
+        name="classes"
+        #class="ngModel"
+        placeholder="enter classes"
+        required
+      />
+      <!-- <button (click)="addclass()">add class for teacher</button> -->
+      @if(class.hasError('required')) {
+      <small class="error-invalid">class is required!!</small>
+      }
+      <!-- @if(selected==1) {
+  <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+  (selected=-1)
+
+  } -->
+    </p>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+
+  <button type="submit" [disabled]="form.invalid">Send</button>
+</form>
