@@ -30,6 +30,8 @@ export class TeacherComponent implements OnInit, AfterViewInit {
     let t = new Teacher(this.id, this.name, arr);
     this.teacherService.addIf(t);
     this.listTeacher = this.teacherService.getTeachers();
+    console.log(this.listTeacher);
+    
   }
   addclass() {
     this.selected = 1;
