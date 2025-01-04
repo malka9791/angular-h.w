@@ -1,0 +1,30 @@
+
+<form [formGroup]="useForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="details">
+        <h2>class:</h2>
+        <select formControlName="class1">
+            @for(item of classes;track $index)
+            {
+                <option>{{item}}</option>
+            }
+        </select><br/>
+        <h2 >choose day:</h2>
+        <input type="number" [formControl]="dayOfWeek"><br/>
+        <div>
+            {{!useForm.get('dayOfWeek')?.errors?.['correctDay']}}
+            @if(!useForm.get('dayOfWeek')?.errors?.['correctDay']){
+            <small style="color:red">the day is not valid</small>
+            }
+        </div>
+        <h2>choose a teacher:</h2>
+        <select formControlName="teacher">
+            @for(item of teachers;track $index)
+            {
+                <option>{{item}}</option>
+            }
+        </select><br/>
+        <h2>choose hour:</h2>
+        <input type="number" [formControl]="hour"><br/>
+    </div><br/>
+    <button type="submit" [disabled]="useForm.invalid">Send</button>
+</form>
