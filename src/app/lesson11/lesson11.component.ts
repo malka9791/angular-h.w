@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule,ValidationErrors,ValidatorFn } from '@angular/forms';
 import { Schedule } from '../models/schedule';
-import { ScheduleService } from '../services/schedule.service';
+import { ScheduleService } from '../services/schedule/schedule.service';
 
 @Component({
   selector: 'app-lesson11',

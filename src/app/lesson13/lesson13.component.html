@@ -1,0 +1,8 @@
+<p>lesson13 works!</p>
+@for(item of events;track $index)
+{
+{{item.name}} -{{item.prod}} -{{item.status}}<br/>
+}
+@empty {
+    not found!!
+}
